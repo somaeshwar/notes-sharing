@@ -1,0 +1,63 @@
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --text-color: #212529;
+    --primary: #0d6efd;
+    --success: #198754;
+    --border: rgba(0, 0, 0, 0.08);
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --card-bg: rgba(30, 30, 30, 0.75);
+    --text-color: #f1f1f1;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+/* Global */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+    backdrop-filter: blur(10px);
+}
+
+/* Glass cards */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 8px;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+}

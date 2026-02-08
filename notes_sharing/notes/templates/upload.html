@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-3">Upload Notes</h2>
+
+<form method="POST" enctype="multipart/form-data" class="card p-4">
+    {% csrf_token %}
+
+    <!-- Title -->
+    <label class="form-label">Title</label>
+    <input type="text" name="title" class="form-control mb-3" required>
+
+    <!-- Subject -->
+    <label class="form-label">Subject</label>
+    <select name="subject" class="form-control mb-3" required>
+        {% for subject in form.subject.field.queryset %}
+            <option value="{{ subject.id }}">
+                {{ subject.name }} (Sem {{ subject.semester }})
+            </option>
+        {% endfor %}
+    </select>
+
+    <!-- File Upload (THIS IS WHERE YOUR CODE GOES) -->
+    <label class="form-label">Upload File</label>
+    <input type="file" name="file" id="fileInput" class="form-control mb-2" required>
+    <p id="fileName" class="text-muted"></p>
+
+    <button class="btn btn-success mt-3">Upload</button>
+</form>
+{% endblock %}

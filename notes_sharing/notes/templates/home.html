@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="mb-3">Student Notes Sharing System</h1>
+    <p class="lead">Upload and download academic notes easily.</p>
+
+    <a href="{% url 'notes_list' %}" class="btn btn-primary">View Notes</a>
+</div>
+{% endblock %}

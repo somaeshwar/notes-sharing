@@ -1,0 +1,16 @@
+# Virtual environment
+venv/
+env/
+
+# Django
+__pycache__/
+*.pyc
+db.sqlite3
+media/
+
+# Static collected files
+staticfiles/
+
+# OS files
+.DS_Store
+Thumbs.db

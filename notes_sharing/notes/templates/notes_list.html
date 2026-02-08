@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="mb-3">Available Notes</h2>
+
+<!-- Search Bar -->
+<input
+    type="text"
+    id="searchInput"
+    class="form-control mb-4"
+    placeholder="Search notes by title..."
+>
+
+<div class="row" id="notesContainer">
+    {% for note in notes %}
+    <div class="col-md-4 mb-4 note-card">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ note.title }}</h5>
+
+                <span class="badge bg-primary mb-2">
+                    {{ note.subject.name }} (Sem {{ note.subject.semester }})
+                </span>
+
+                <p class="text-muted mb-1">
+                    Uploaded by: {{ note.uploaded_by.username }}
+                </p>
+
+                <p class="text-muted">
+                    ⬇ {{ note.download_count }} downloads
+                </p>
+
+                <a href="{% url 'download' note.id %}"
+                   class="btn btn-success mt-auto">
+                    Download
+                </a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No notes uploaded yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
